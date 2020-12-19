@@ -1,0 +1,67 @@
+[
+    {
+        "_id": {
+            "$oid": "5fb998a74e67915eb5eb53e9"
+        },
+        "category": {
+            "standart": [
+                {
+                    "name": "sentra",
+                    "brand": "nissan",
+                    "price": 60,
+                    "availability": true,
+                    "isFavorite": true,
+                    "description": "Carro particular para la ciudad",
+                    "colors": [
+                        "C3A995",
+                        "CEB992",
+                        "73937E",
+                        "5B2E48"
+                    ],
+                    "imageUrl": "https://stitch-statichosting-prod.s3.amazonaws.com/5fbefc5329e5d0fc6d4fdfdb/5ea82aa14b6d1e431e71d404/1.png"
+                },
+                {
+                    "name": "montero",
+                    "brand": "mitsubishi",
+                    "price": 110,
+                    "availability": true,
+                    "isFavorite": false,
+                    "description": "El mejor para caminos lodosos",
+                    "colors": [
+                        "B98EA7",
+                        "6C7D47"
+                    ],
+                    "imageUrl": "https://stitch-statichosting-prod.s3.amazonaws.com/5fbefc5329e5d0fc6d4fdfdb/5ea82aa14b6d1e431e71d404/1.png"
+                }
+            ],
+            "luxury": [
+                {
+                    "name": "A5",
+                    "brand": "audi",
+                    "price": 150,
+                    "availability": true,
+                    "isFavorite": false,
+                    "description": "Estilo y calidad solo para ti",
+                    "colors": [
+                        "B98EA7",
+                        "6C7D47"
+                    ],
+                    "imageUrl": "https://stitch-statichosting-prod.s3.amazonaws.com/5fbefc5329e5d0fc6d4fdfdb/5ea82aa14b6d1e431e71d404/1.png"
+                },
+                {
+                    "name": "RDX",
+                    "brand": "Acura",
+                    "price": 220,
+                    "availability": true,
+                    "isFavorite": false,
+                    "description": "Mayor capacidad y mayor estilo",
+                    "colors": [
+                        "B98EA7",
+                        "6C7D47"
+                    ],
+                    "imageUrl": "https://stitch-statichosting-prod.s3.amazonaws.com/5fbefc5329e5d0fc6d4fdfdb/5ea82aa14b6d1e431e71d404/1.png"
+                }
+            ]
+        }
+    }
+]
