@@ -1,9 +1,48 @@
-<h1>Dashboard!</h1>
+<h1>Dashboard</h1>
 <p> Welcome <%= user.name %></p>
 
-<% product.standart.forEach(function(comment){ %>
-    <p><strong><%= comment.name %></strong></p>
-    <p><%= comment.brand %></p>
-    <% }) %>
+<form action="/dashboard/confirm"
+    method="POST">
+
+<h3><%= Object.keys(product)[0] %></h3>
+<% product.standart.forEach(function(standart){ %>
+
+    <div>
+      <input type="radio"
+            id="<%=standart.name%>"
+            name="car"
+            value="<%=JSON.stringify(standart)%>">
+        <label>
+            <%=standart.brand %>
+        </label>
+        <label for="<%=standart.name%>">
+            <%=standart.name %>
+        </label>
+    </div>
+
+<% }) %>
+
+<h3><%= Object.keys(product)[1] %></h3>
+<% product.luxury.forEach(function(luxury){ %>
+
+    <div>
+        <input type="radio"
+            id="<%=luxury.name%>"
+            name="car"
+            value="<%=JSON.stringify(luxury)%>">
+        <label>
+            <%=luxury.brand %>
+        </label>
+        <label for="<%=luxury.name%>">
+            <%=luxury.name %>
+        </label>
+    </div>
+
+<% })%>
+
+<div>
+    <button type="submit"
+        class="btn btn-primary btn-block">Confirmar</button>
+</div>
 
 <a href="/users/logout">Logout</a>

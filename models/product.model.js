@@ -12,14 +12,14 @@ var CategorySchema = new Schema(
   {
     standart: { type: [CharacteristicsSchema], required: true, max: 100 },
     luxury: { type: [CharacteristicsSchema], required: true, max: 100 },
-  }, { collection: 'product_category' }
+  }, { collection: 'products' }
 );
 
 var CharacteristicsSchema = new Schema(
   {
     name: { type: String, required: true, max: 100 },
     price: { type: Number, required: true, max: 100 }
-  }, { collection: 'product_category' }
+  }, { collection: 'products' }
 );
 
 module.exports = mongoose.model('Product', ProductSchema);
