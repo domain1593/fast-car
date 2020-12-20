@@ -3,8 +3,50 @@
 <form action="/dashboard/confirm/request_car"
     method="POST">
 
-<h3><%= product.brand %></h3>
-<h3><%= product.name %></h3>
+    <table style="width:100%">
+
+    <tr>
+
+        <td>
+
+            <div>
+                <label>
+                    <%=product.brand %>
+                </label>
+                <label for="<%=product.name%>">
+                    <%=product.name %>
+                </label>
+            </div>
+    
+
+            <div>
+                <label>
+                    $<%=product.price %>
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    <%=product.description %>
+                </label>
+            </div>
+
+        </td>
+
+        <th>
+
+            <div>
+                <img src="<%=product.imageUrl%>" />
+            </div>
+
+
+        </th>
+   
+
+    </tr>
+
+</table>
+
 
 <div>
     <button type="submit"
