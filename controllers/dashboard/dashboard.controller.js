@@ -2,13 +2,15 @@
 const Product = require('../../models/product.model');
 const User = require("../../models/user.model");
 
-var product = {};
+var user = {};
+var product = [];
 
 exports.goToDashboard = (req, res) => {
 
     Product.find()
         .then((products) => {
 
+            user = req.user;
             res.render('dashboard', {
                 user: req.user,
                 product: products[0].category
@@ -33,15 +35,23 @@ exports.confirmPage = (req, res) => {
 exports.requestCar = (req, res) => {
 
     var email = req.user.email;
-    req.user.product = product;
+    req.user.product.push(product);
 
     User.findOneAndUpdate({ email: email }, req.user, { upsert: true })
         .then((user) => {
 
-            res.send('Succesfully saved.');
+            res.render('succesful_request', {
+            });
         })
         .catch((error) => {
 
             res.send(500, { error: error });
         })
+}
+
+exports.seeUserDataPage = (req, res) => {
+
+    res.render('user_panel', {
+        user: user
+    })
 }
