@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var environment = require('../environments/development');
+var environment = require('../environments/production');
 
 function fastCarDBConnection() {
 
