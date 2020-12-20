@@ -1,0 +1,21 @@
+<h1>User Panel</h1>
+
+<p><%= user.name %></p>
+<p><%= user.email %></p>
+<p><%= user.date %></p>
+
+<% user.product.forEach(function(standart){ %>
+
+    <div>
+        <label for="<%=standart.name%>">
+            <%=standart.name %>
+        </label>
+    </div>
+
+    <div>
+        <img src="<%=standart.imageUrl%>" />
+    </div>
+
+<% }) %>
+
+<a href="/dashboard">Ir al dashboard</a>
