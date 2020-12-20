@@ -1,6 +1,10 @@
 const User = require('../../models/user.model');
 const bcrypt = require('bcrypt');
 
+exports.renderRegisterPage = (req, res) => {
+    res.render('register')
+};
+
 exports.registerUser = (req, res) => {
     const { name, email, password, password2 } = req.body;
     let errors = [];
@@ -8,7 +12,7 @@ exports.registerUser = (req, res) => {
     if (!name || !email || !password || !password2) {
         errors.push({ msg: "Please fill in all fields" })
     }
-   
+
     if (password !== password2) {
         errors.push({ msg: "passwords dont match" });
     }
@@ -25,7 +29,7 @@ exports.registerUser = (req, res) => {
             password2: password2
         })
     } else {
-      
+
         User.findOne({ email: email }).exec((err, user) => {
             console.log(user);
             if (user) {
@@ -38,18 +42,18 @@ exports.registerUser = (req, res) => {
                     password: password
                 });
 
-                
+
                 bcrypt.genSalt(10, (err, salt) =>
                     bcrypt.hash(newUser.password, salt,
                         (err, hash) => {
                             if (err) throw err;
-                          
+
                             newUser.password = hash;
-                        
+
                             newUser.save()
                                 .then((value) => {
                                     console.log(value);
-                                    req.flash('success_msg','You have now registered!');
+                                    req.flash('success_msg', 'You have now registered!');
                                     res.redirect('/users/login');
                                 })
                                 .catch(value => console.log(value));

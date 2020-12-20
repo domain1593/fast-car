@@ -1,12 +1,9 @@
 const express = require('express');
 const router = express.Router();
+var rootController = require('../controllers/root/root.controller');
 
-router.get('/', (req, res) => {
-  res.render('home');
-})
+router.get('/', rootController.renderHomePage);
 
-router.get('/register', (req, res) => {
-  res.render('register');
-})
+router.get('/register', rootController.renderRegisterPage);
 
 module.exports = router;
