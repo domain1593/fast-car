@@ -1,23 +1,23 @@
-<h1> Login </h1>
+<h1> Inicie sesión </h1>
 <%- include ('./partials/messages') %>
 <form action="/users/login"
     method="POST">
 
     <div>
-        <label for="email">Email</label>
+        <label for="email">Correo electronico:</label>
         <input type="email"
             name="email"
-            placeholder="Enter Email" />
+            placeholder="Introduce Correo" />
     </div>
 
     <div>
-        <label for="password">Password</label>
+        <label for="password">Contraseña: </label>
         <input type="password"
             name="password"
-            placeholder="Enter Password" />
+            placeholder="Introduce contraseña" />
 
     </div>
     <button type="submit"
-        class="btn btn-primary btn-block">Login</button>
+        class="btn btn-primary btn-block">Iniciar sesión</button>
 
 </form>

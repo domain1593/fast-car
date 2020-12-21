@@ -10,15 +10,15 @@ exports.registerUser = (req, res) => {
     let errors = [];
 
     if (!name || !email || !password || !password2) {
-        errors.push({ msg: "Please fill in all fields" })
+        errors.push({ msg: "Por favor llene todos los campos" })
     }
 
     if (password !== password2) {
-        errors.push({ msg: "passwords dont match" });
+        errors.push({ msg: "Las contraseñas no coinciden" });
     }
 
     if (password.length < 6) {
-        errors.push({ msg: 'password atleast 6 characters' })
+        errors.push({ msg: 'La contraseña debe tener al menos 6 caracteres' })
     }
     if (errors.length > 0) {
         res.render('register', {
@@ -53,7 +53,7 @@ exports.registerUser = (req, res) => {
                             newUser.save()
                                 .then((value) => {
                                 
-                                    req.flash('success_msg', 'You have now registered!');
+                                    req.flash('success_msg', 'Se ha registrado exitosamente!');
                                     res.redirect('/users/login');
                                 })
                                 .catch();

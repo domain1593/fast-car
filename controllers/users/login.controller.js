@@ -14,6 +14,6 @@ exports.loginUser = (req, res, next) => {
 
 exports.logoutUser = (req, res) => {
     req.logout();
-    req.flash('success_msg', 'Now logged out');
+    req.flash('success_msg', 'Ha cerrado sesión');
     res.redirect('/users/login');
 };
