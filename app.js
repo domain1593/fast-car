@@ -40,24 +40,28 @@ function stablishRouting() {
   app.use('/dashboard', dashboardRouter);
 }
 
+function createAuthInstance() {
+  app.use(express.urlencoded({ extended: false }));
+
+  app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  }));
+  app.use(passport.initialize());
+  app.use(passport.session());
+  app.use(flash());
+
+  app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    res.locals.error = req.flash('error');
+    next();
+  })
+}
+
 mongoConnect.fastCar_db_connect;
-app.use(express.urlencoded({ extended: false }));
-
-app.use(session({
-  secret: 'secret',
-  resave: true,
-  saveUninitialized: true
-}));
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
-
-app.use((req, res, next) => {
-  res.locals.success_msg = req.flash('success_msg');
-  res.locals.error_msg = req.flash('error_msg');
-  res.locals.error = req.flash('error');
-  next();
-})
+createAuthInstance();
 stablishRouting();
 generalSetup();
 
