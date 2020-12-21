@@ -1,21 +1,84 @@
-<h1>User Panel</h1>
+<h1>Panel de usuario</h1>
 
-<p><%= user.name %></p>
-<p><%= user.email %></p>
-<p><%= user.date %></p>
+<div>
+    <label>
+        Nombre:
+    </label>
+    <label>
+        <%=user.name %>
+    </label>
+</div>
 
-<% user.product.forEach(function(standart){ %>
+<div>
+    <label>
+        Correo:
+    </label>
+    <label>
+        <%=user.email %>
+    </label>
+</div>
 
-    <div>
-        <label for="<%=standart.name%>">
-            <%=standart.name %>
-        </label>
-    </div>
+<div>
+    <label>
+        Fecha de creación:
+    </label>
+    <label>
+        <%=user.date %>
+    </label>
+</div>
 
-    <div>
-        <img src="<%=standart.imageUrl%>" />
-    </div>
+<p><h2>Autos pedidos</h2></p>
+
+<table style="width:100%">
+    <tr>
+      <th>Caracteristicas</th> 
+      <th>Modelo</th>
+    </tr>
+
+<% user.product.forEach(function(car){ %>
+
+    <tr>
+
+        <th>
+
+            <div>
+                <label>
+                    <%=car.brand %>
+                </label>
+                <label for="<%=car.name%>">
+                    <%=car.name %>
+                </label>
+            </div>
+    
+
+            <div>
+                <label>
+                    $<%=car.price %>
+                </label>
+            </div>
+
+            <div>
+                <label>
+                    <%=car.description %>
+                </label>
+            </div>
+
+        </th>
+
+        <th>
+
+            <div>
+                <img src="<%=car.imageUrl%>" />
+            </div>
+
+
+        </th>
+   
+
+    </tr>
 
 <% }) %>
+
+</table>
 
 <a href="/dashboard">Ir al dashboard</a>
