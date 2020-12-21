@@ -7,7 +7,6 @@ const flash = require('connect-flash');
 var mongoConnect = require('./providers/mongo.provider');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var productRouter = require('./routes/product');
 var dashboardRouter = require('./routes/dashboard');
 
 var app = express();
@@ -38,7 +37,6 @@ function stablishRouting() {
 
   app.use('/', indexRouter);
   app.use('/users', usersRouter);
-  app.use('/products', productRouter);
   app.use('/dashboard', dashboardRouter);
 }
 
