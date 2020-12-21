@@ -8,7 +8,7 @@ exports.renderRegisterPage = (req, res) => {
 exports.registerUser = (req, res) => {
     const { name, email, password, password2 } = req.body;
     let errors = [];
-    console.log(' Name ' + name + ' email :' + email + ' pass:' + password);
+
     if (!name || !email || !password || !password2) {
         errors.push({ msg: "Please fill in all fields" })
     }
@@ -31,7 +31,7 @@ exports.registerUser = (req, res) => {
     } else {
 
         User.findOne({ email: email }).exec((err, user) => {
-            console.log(user);
+
             if (user) {
                 errors.push({ msg: 'email already registered' });
                 res.render('register', { errors, name, email, password, password2 })
@@ -52,11 +52,11 @@ exports.registerUser = (req, res) => {
 
                             newUser.save()
                                 .then((value) => {
-                                    console.log(value);
+                                
                                     req.flash('success_msg', 'You have now registered!');
                                     res.redirect('/users/login');
                                 })
-                                .catch(value => console.log(value));
+                                .catch();
 
                         }));
             }
